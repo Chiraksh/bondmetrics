@@ -89,26 +89,11 @@ const { q1, q2, q3 } = location.state || {};
   const [flash, setFlash] = React.useState(false);
 
   React.useEffect(() => {
-
-    // Show video after 2 seconds (analysis screen first)
-    setTimeout(() => {
+    const loaderTimer = setTimeout(() => {
       setShowVideo(true);
-    }, 6000);
+    }, 6000); // 6 sec loading screen
   
-    // Flash
-    setTimeout(() => {
-      setFlash(true);
-    }, 9800);
-  
-    setTimeout(() => {
-      setFlash(false);
-    }, 9950);
-  
-    // Show final message
-    setTimeout(() => {
-      setShowMessage(true);
-    }, 10000);
-  
+    return () => clearTimeout(loaderTimer);
   }, []);
 
   return (
@@ -177,6 +162,17 @@ const { q1, q2, q3 } = location.state || {};
     src="/meme.mp4"
     autoPlay
     playsInline
+    onEnded={() => {
+      setFlash(true);
+    
+      setTimeout(() => {
+        setFlash(false);
+      }, 100);
+    
+      setTimeout(() => {
+        setShowMessage(true);
+      }, 200);
+    }}
     style={{
       width: "75%",
       height: "75%",
@@ -198,7 +194,7 @@ const { q1, q2, q3 } = location.state || {};
             transition={{ delay: 0.5 }}
             style={styles.explosionText}
           >
-            LADLE photoshoot kb krega
+            LADLE photoshoot kb krega😂😂
             {/* or BSDK kb milega....salle score check kr ra h😂😂 */}
           </motion.h1>
         </motion.div>
