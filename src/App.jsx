@@ -159,7 +159,7 @@ const { q1, q2, q3 } = location.state || {};
 
 {showVideo && !showMessage && (
   <video
-    src="/meme.mp4"
+    src="/mememe.mp4"
     autoPlay
     playsInline
     onEnded={() => {
@@ -194,7 +194,8 @@ const { q1, q2, q3 } = location.state || {};
             transition={{ delay: 0.5 }}
             style={styles.explosionText}
           >
-            LADLE photoshoot kb krega😂😂
+            You have been pranked look camera above your screen....🦍🦍
+            {/* LADLE photoshoot kb krega😂😂 */}
             {/* or BSDK kb milega....salle score check kr ra h😂😂 */}
           </motion.h1>
         </motion.div>
